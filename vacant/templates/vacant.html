@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %} Чистик-спб - Вакансии {% endblock %}
+
+{% block content %}
+
+{% if vacant_list %}
+  <h2>В настоящее время требуется:</h2>
+    {% for vacancy in vacant_list %}
+      <ul class="unstyled">
+        <li><h3 class="alert">{{ vacancy.vacancy }}</h3></li>
+      </ul>
+    {% endfor %}
+
+  <h3>Обращаться по телефону:
+    {{ contact.first.person_phone }}
+    ({{ contact.first.person_name }}
+    {{ contact.first.person_last_name }})
+  </h3>
+{% else %}
+    <h2>В настоящее время вакансий нет</h2>
+{% endif %}
+{% endblock %}

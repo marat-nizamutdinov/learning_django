@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Чистик-спб - Контакты {% endblock %}
+
+{% block content %}
+
+  <div class="container content" xmlns="http://www.w3.org/1999/html">
+    	<div class="row margin-bottom-30">
+    		<div class="col-md-9 mb-margin-bottom-30">
+          <div class="headline"><h2>Свяжитесь с нами!</h2></div>
+          <p>Вы можете оставить свой отзыв или предложение здесь:</p><br>
+          <table>
+            <form class="sky-form contact-style" method="post" action="">
+              {% csrf_token %}
+              {{ form.non_field_errors }}
+
+              <div class="fieldWrapper row sky-space-20">
+                <div class="col-md-7 col-md-offset-0">
+                  <label for="id_subject">Ваше имя: <span class="color-red">*</span></label>
+                  {% if form.subject.errors %}
+                    <div class="has-error fieldWrapper">
+                      {{ form.subject }}
+                      <span class="help-inline">{{ form.subject.errors }}</span>
+                    </div>
+                  {% else %}
+                    <div class="has-success fieldWrapper">
+                      {{ form.subject }}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+
+              <div class="fieldWrapper row sky-space-20">
+                <div class="col-md-7 col-md-offset-0">
+                  <label for="id_sender">Ваш e-mail: <span class="color-red">*</span></label>
+                  {% if form.sender.errors %}
+                    <div class="has-error fieldWrapper">
+                      {{ form.sender }}
+                      <span class="help-inline">{{ form.sender.errors }}</span>
+                    </div>
+                  {% else %}
+                    <div class="has-success fieldWrapper">
+                      {{ form.sender }}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+
+              <div class="fieldWrapper row sky-space-20">
+                <div class="col-md-11 col-md-offset-0">
+                  <label for="id_message">Ваше сообщение: <span class="color-red">*</span></label>
+                  {% if form.message.errors %}
+                    <div class="has-error fieldWrapper">
+                      {{ form.message }}
+                      <span class="help-inline">{{ form.message.errors }}</span>
+                    </div>
+                  {% else %}
+                    <div class="has-success fieldWrapper">
+                      {{ form.message }}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+              <br/>
+
+              <button class="btn btn-success contact_btn" type="submit">Отправить сообщение</button>
+            </form>
+          </table>
+        </div><!--/col-md-9-->
+
+    		<div class="col-md-3">
+            	<!-- Contacts -->
+                <div class="headline"><h2>Наши контакты</h2></div>
+                {% if contact_list %}
+                  {% for contact in contact_list %}
+                    <ul class="list-unstyled who margin-bottom-30">
+                      <li><i class="fa fa-home"></i>{{ contact.person_name }} {{ contact.person_last_name }}</li>
+                      <li><i class="fa fa-phone"></i>Тел: {{ contact.person_phone }}</li>
+                      <li><i class="fa fa-envelope"></i>{{ contact.person_mail }}</li>
+                      <li><i class="fa fa-globe"></i>http://чистик-спб.рф</li>
+                    </ul>
+                  {% endfor %}
+                {% else %}
+                  <p>Извините, в данный момент контакты недоступны</p>
+                {% endif %}
+
+            	<!-- Время работы -->
+                <div class="headline"><h2>Время работы</h2></div>
+                <ul class="list-unstyled margin-bottom-30">
+                	<li><strong>Понедельник-Пятница:</strong> 10:00 - 20:00</li>
+                	<li><strong>Суббота:</strong> 10:00 - 18:00</li>
+                	<li><strong>Воскресенье:</strong>11:00 - 17:00</li>
+                </ul>
+
+            </div><!--/col-md-3-->
+        </div><!--/row-->
+    </div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% url 'main' as main_url %}
+{% url 'services' as services_url %}
+{% url 'vacant' as vacant_url %}
+{% url 'contact' as contact_url %}
+
+
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+      <a class="navbar-brand" href="{% url 'main' %}">чистик-спб.рф</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        {% if request.get_full_path == main_url %}
+          <li class="active"><a href="{{ main_url }}">Главная</a></li>
+        {% else %}
+          <li><a href="{{ main_url }}">Главная</a></li>
+        {% endif %}
+        {% if request.get_full_path == services_url %}
+          <li class="active"><a href="{{ services_url }}">Цены</a></li>
+        {% else %}
+          <li><a href="{{ services_url }}">Цены</a></li>
+        {% endif %}
+        {% if request.get_full_path == vacant_url %}
+          <li class="active"><a href="{{ vacant_url }}">Вакансии</a></li>
+        {% else %}
+          <li><a href="{{ vacant_url }}">Вакансии</a></li>
+        {% endif %}
+        {% if request.get_full_path == contact_url %}
+          <li class="active"><a href="{{ contact_url }}">Контакты</a></li>
+        {% else %}
+          <li><a href="{{ contact_url }}">Контакты</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</div>

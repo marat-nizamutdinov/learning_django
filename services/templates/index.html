@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %} Чистик-спб - Наши услуги {% endblock %}
+
+{% block content %}
+
+{% if service_list %}
+    {% for service_type in service_list %}
+
+  <table class="table table-striped table-bordered table-hover">
+    <tr class="info">
+      <td colspan="3" class="text-center">{{ service_type.name }}</td>
+    </tr>
+    <tr>
+      <th>Вид услуги</th>
+      <th>Выполняемые мероприятия</th>
+      <th>Стоимость услуги</th>
+    </tr>
+      {% for service in service_type.service_set.all %}
+      <tr>
+        <td class="">{{ service.name }}</td>
+        <td class="">{{ service.comment }}</td>
+        <td class="">{{ service.price }}</td>
+      </tr>
+        {% endfor %}
+      <tr>
+        <td colspan="3">{{ service_type.comment }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% else %}
+    <h3>Извините, в данный момент нету доступных услуг.</h3>
+{% endif %}
+
+{% endblock %}

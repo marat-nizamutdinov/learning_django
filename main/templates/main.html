@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} Чистик-спб - Главная {% endblock %}
+
+{% block content %}
+  {% for item in main_text %}
+
+    <div class="section">
+        <h3 class="main-text">{{ item.head }}</h3>
+        <div class="row service-wrapper-row">
+            <div class="col-sm-4">
+                <div class="service-image align-right">
+                    <img alt="Service Name" src="{{ item.image.url }}" width="350" height="180">
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <p>{{ item.text }}</p>
+            </div>
+        </div>
+      <br/>
+    </div>
+  {% endfor %}
+
+{% endblock %}
