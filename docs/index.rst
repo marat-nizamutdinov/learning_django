@@ -10,7 +10,7 @@ Here is some text explainng some very complicated stuff.::
    >> hello
 
 Guide
-ˆˆˆˆˆ
+-----
 
 .. toctree::
    :maxdepth: 3
