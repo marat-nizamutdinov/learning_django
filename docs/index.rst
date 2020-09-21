@@ -1,4 +1,4 @@
-Simple learning_django's documentation!
+Simple learning_sphinx_docs's documentation!
 =======================================
 
 Another simple header
@@ -22,6 +22,4 @@ Guide
 Indices and tables
 ==================
 
-* :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
