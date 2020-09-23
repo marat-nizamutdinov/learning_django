@@ -6,8 +6,8 @@ Another simple header
 
 Here is some text explainng some very complicated stuff.::
 
-   print 'hello world!'
-   >> hello world!
+   print 'hello!'
+   >> hello!
 
 Guide
 -----
